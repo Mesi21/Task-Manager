@@ -25,12 +25,27 @@ class TodoContainer extends Component {
     };
   }
 
+  handleChange = ({ id }) => {
+    const { todos } = this.state;
+    this.setState({
+      todos: todos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed,
+          };
+        }
+        return todo;
+      }),
+    });
+  }
+
   render() {
     const { todos } = this.state;
 
     return (
       <div>
-        <TodoList item={todos} />
+        <TodoList item={todos} clickHandler={this.handleChange} />
       </div>
     );
   }
