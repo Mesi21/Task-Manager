@@ -1,10 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Task from './Task';
 
 const TodoList = ({ item }) => (
   <div>
     <ul>
-      {item.map((todo) => <li key={todo.id}>{todo.title}</li>)}
+      {
+        item
+          .map((todo) => <Task key={todo.id} title={todo.title} id={todo.id} y={todo.completed} />)
+      }
     </ul>
   </div>
 );
