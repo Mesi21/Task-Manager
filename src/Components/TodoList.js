@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Task from './Task';
 
-const TodoList = ({ item, clickHandler }) => (
+const TodoList = ({ item, clickHandler, remove }) => (
   <div>
     <ul>
       {
@@ -14,6 +14,7 @@ const TodoList = ({ item, clickHandler }) => (
               id={todo.id}
               y={todo.completed}
               clickHandler={clickHandler}
+              remove={remove}
             />
           ))
       }
@@ -28,6 +29,7 @@ TodoList.propTypes = {
     completed: PropTypes.bool.isRequired,
   }).isRequired).isRequired,
   clickHandler: PropTypes.func.isRequired,
+  remove: PropTypes.func.isRequired,
 };
 
 export default TodoList;

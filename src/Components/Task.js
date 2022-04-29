@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Task = ({
-  title, id, y, clickHandler,
+  title, id, y, clickHandler, remove,
 }) => (
   <li key={id}>
     <input
@@ -10,6 +10,7 @@ const Task = ({
       checked={y}
       onChange={() => clickHandler({ id })}
     />
+    <button type="button" onClick={() => remove({ id })}>Delete</button>
     { title }
   </li>
 );
@@ -19,6 +20,7 @@ Task.propTypes = {
   id: PropTypes.number.isRequired,
   y: PropTypes.bool.isRequired,
   clickHandler: PropTypes.func.isRequired,
+  remove: PropTypes.func.isRequired,
 };
 
 export default Task;
